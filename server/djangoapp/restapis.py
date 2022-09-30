@@ -64,7 +64,7 @@ def get_dealers_from_cf(url, **kwargs):
 
     if json_result:
         # Get the row list in JSON as dealers
-        dealers = json_result["rows"]
+        dealers = json_result
         # For each dealer object
         for dealer in dealers:
             # Get its content in `doc` object
