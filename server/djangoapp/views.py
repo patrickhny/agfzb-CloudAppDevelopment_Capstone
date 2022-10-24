@@ -106,18 +106,17 @@ def get_dealerships(request):
 def get_dealer_details(request, dealer_id):
     if request.method == "GET":
         context = {}
-
-        dealer_url = "https://us-south.functions.appdomain.cloud/api/v1/web/IBM-Course-Example_dev/dealership-package/get-review"
-        reviews = get_dealer_reviews_from_cf(dealer_url)
-        context["review_list"] = reviews
-        
-        '''
         dealer_url = "https://us-south.functions.appdomain.cloud/api/v1/web/IBM-Course-Example_dev/dealership-package/get-dealerships"
-        dealer = get_dealer_by_id_from_cf(dealer_url, id=dealer_id)
+        dealer = get_dealer_by_id_from_cf(dealer_url, id=id)
         context["dealer"] = dealer
-     
+    
+        review_url = "https://us-south.functions.appdomain.cloud/api/v1/web/IBM-Course-Example_dev/dealership-package/get-review"
+        reviews = get_dealer_reviews_from_cf(review_url, id=id)
+        print(reviews)
+        context["reviews"] = reviews
+        
         return render(request, 'djangoapp/dealer_details.html', context)
-        '''
+
 
 # Create a `add_review` view to submit a review
 # def add_review(request, dealer_id):
